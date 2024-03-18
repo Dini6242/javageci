@@ -1,0 +1,88 @@
+Problem Description
+In this problem, you will write a program that reads data pertaining to the number of games played by each user and the total score obtained. Furthermore, each game has a certain number of rounds and then turns played that is not known beforehand. The program should determine the count of games that was won by each player, while excluding from the count the games that were drawn because the score obtained was equal.
+Input
+You will receive (from the user) the following as input (in order):
+The count of scores obtained by each user (e.g., 2 scores for one game played by player 1 and 2)
+The scores obtained in order by each user, first the score obtained by player 1 is given (i.e., 125), then the following integer is the score obtained by player 2 (e.g., 100). Note that players may have completed two games, and thus 4 scores are given, and so on.
+The rounds played per game, labelled as Round1, Round2, and so on. Note that once players have finished the game, this is denoted by “-1”.
+Each turn made by a player is associated with a score, the sum of which is displayed as the total score obtained for that game
+Processing
+List the number of games won by a given player or drawn
+List the rounds completed by each player for the game listed above
+Display the final count for the total amount of games won by each player (i.e., excluding the games that were drawn)
+Display the number of player turns at each round
+Examples
+Input	Output
+2
+125
+100
+Round1
+125
+100
+-1
+-1	Player 1 Wins Game 1
+Round1
+Total games won by each player:
+Player 1: 1
+Player 2: 0
+Number of player turns: 2
+2
+250
+100
+Round1
+125
+50
+-1
+Round2
+125
+50
+-1
+-1	Player 1 Wins Game 1
+Round1
+Round2
+Total games won by each player:
+Player 1: 1
+Player 2: 0
+Number of player turns: 4
+4
+250
+100
+Round1
+100
+25
+50
+50
+100
+25
+-1
+-1
+125
+50
+Round1
+50
+25
+-1
+Round2
+75
+25
+-1
+-1	Player 1 Wins Game 1
+Round1
+Player 1 Wins Game 2
+Round1
+Round2
+Total games won by each player:
+Player 1: 2
+Player 2: 0
+Number of player turns: 10
+Hint: Let’s examine the last test case further. There are 4 scores obtained on 2 games played by player 1 and 2. In the first set of score pairs (250 for player 1; 100 for player 2), the game included only a single round (i.e., Round1). For Round 1 the scores obtained on each turn are given as follows:
+100 25 50 50 100 25 -1
+As in the following:
+Player 1: 100 + 50 + 100 = 250
+Player 2: 25 + 50 + 25 = 100
+And the end of the game is then denoted by -1, because both the number of rounds and turns is unknown, so both sentinel values may be relied on in order to determine when the game finishes.
+For the next game, the set of scores obtained are 125 for player 1 and 50 for player 2. The game includes two rounds (i.e., Round1 and Round 2). For Round 1 the scores obtained on each turn are given as follows:
+50 25 -1
+And for Round 2
+75 25 -1
+And the end of the game is then denoted by -1, the sentinel. Remember the approach taken in the previous problem, nesting an indefinite loop to capture a set of string values of unknown length within the definite loop to capture a set of integers of known length. Try to draw an analogy to your previous solution to capture the new set of integer values of unknown length.
